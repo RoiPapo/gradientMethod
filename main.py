@@ -19,15 +19,18 @@ def gradient_method(f, gf, lsearch, x0, epsilon=1e-5):
     return x
 
 
-def lsearch(f, x, gf):
-    return 0.1
+def const_step(s):
+    def lsearch(f, x, gf):
+        return s
+
+    return lsearch
 
 
 def main():
     f = lambda x: x ** 2
     gf = lambda x: 2 * x
     x0 = 50
-    gradient_method(f, gf, lsearch, x0)
+    gradient_method(f, gf, const_step(0.1), x0)
 
 
 if __name__ == "__main__":
