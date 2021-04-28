@@ -26,6 +26,24 @@ def const_step(s):
     return lsearch
 
 
+def exact_quad(A):
+    def lsearch(f, x, gf):
+        t = 5
+        return t
+
+    return lsearch
+
+
+def back(alpha, beta, s):
+    def lsearch(f, xk, gk):
+        t = s
+        while f(xk-t*gk) > f(xk) - alpha*t* np.linalg.norm(gk):
+            t = t*beta
+        return t
+    return lsearch
+
+
+
 def main():
     f = lambda x: x ** 2
     gf = lambda x: 2 * x
